@@ -61,10 +61,15 @@ def pointsAleatoires(n,L):
     return g
 
 def testQuestion2_2():
+    '''On verifie le bon fonctionnement de la methode pointsAleatoires'''
     g= pointsAleatoires(10,20)
     graphique.affiche(g,(3.,2.),100.)
 
 def testQuestion2_3():
+    '''
+    On verifie le bon fonctionnement des methodes
+    ajouteNationale, ajouteDepartementale, ajouteRoute.
+    '''
     g = pointsAleatoires(10,20)
     g.ajouteNationale(g.sommets[0], g.sommets[1])
     g.ajouteDepartementale(g.sommets[2], g.sommets[3])
@@ -73,16 +78,19 @@ def testQuestion2_3():
                   
 
 def testQuestion2_4():
+    '''On verifie le bon fonctionnement de la methode gabriel'''
     g = pointsAleatoires(10,20)
     graphe_gabriel=graphe.gabriel(g)
     graphique.affiche(g,(3.,2.),100.)
 
 def testQuestion2_5():
+    '''On verifie le fonctionnement de la fonction reseau'''
     g = pointsAleatoires(100,20)
     graphe.reseau(g)
     graphique.affiche(g,(3.,2.),100.)
 
 def testQuestion2_6():
+    '''On mesure le temps necessaire a la construction d'un reseau routier'''
     parametres = [ 2**x  for x in range(0,10)]
     def prepare(n):
         return pointsAleatoires(n,100)
@@ -90,6 +98,10 @@ def testQuestion2_6():
     plt.show()
 
 def testQuestion3_1():
+    '''
+    On verifie que les chemins optimaux determines par
+    la methode dijkstra forment un arbre.
+    '''
     g = pointsAleatoires(100,20)
     graphe_gabriel=graphe.gabriel(g)
     graphe_gabriel.dijkstra(graphe_gabriel.sommets[0])
@@ -97,6 +109,10 @@ def testQuestion3_1():
     graphique.affiche(graphe_gabriel,(3.,2.),1000.)
 
 def testQuestion3_2():
+    '''
+    On compare les resultats de dijkstra sur deux memes reseaux routiers,
+    l'un ayant le carburant comme cout et l'autre le temps.
+    '''
     g_carb = pointsAleatoires(100,200)
     graphe.reseau2(g_carb)
     g_temps=copy.deepcopy(g_carb)
@@ -112,6 +128,7 @@ def testQuestion3_2():
     graphique.affiche(g_temps,(3.,2.),100.)
 
 def testQuestion3_3():
+    '''On mesure le temps de calcul de l'algorithme Dijkstra'''
     parametres = range(3,100)
     def prepare(n):
         return (graphe.reseau2(pointsAleatoires(n,150)))
@@ -119,6 +136,7 @@ def testQuestion3_3():
     plt.show()
 
 def testQuestion3_4():
+    '''On affiche un graphe ou le chemin optimal est colore'''
     g = pointsAleatoires(100,100)
     gtest=graphe.reseau2(g)
     gtest.fixeCarburantCommeCout()
@@ -129,6 +147,7 @@ def testQuestion3_4():
     graphique.affiche(gtest,(3.,2.),100.)                   
 
 def testQuestion4_1():
+    '''On teste le fonctionnement de matriceCout'''
     g = pointsAleatoires(100,100)
     gtest=graphe.reseau2(g)
     tournee=[gtest.sommets[int(random.random()*100)] for i in range(6)]
@@ -139,6 +158,7 @@ def testQuestion4_1():
         graphique.affiche(gtest,(3.,2.),100.)
 
 def testQuestion4_2():
+    '''On verifie la resolution du probleme'''
     g = pointsAleatoires(20,200)
     gtest=graphe.reseau2(g)
     tournee=gtest.sommets[0:6]
@@ -147,6 +167,7 @@ def testQuestion4_2():
     graphique.affiche(gtest,(3.,2.),200.)
 
 def testQuestion4_3():
+    '''On evalue le temps de calcul en fonction du nombre de villes a visiter.'''
     g = pointsAleatoires(100,200)
     gtest=graphe.reseau2(g)
     parametres = range(3,15)
