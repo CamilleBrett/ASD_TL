@@ -1,6 +1,8 @@
 # Modélisation du problème du voyageur de commerce
 
-Ce projet réunit différents scripts avec le but de présenter le problème du voyageur de commerce. Il a été créé dans le cadre du cours Algorithmes et Structures de Données.
+
+
+Ce projet réunit différents scripts avec le but de présenter le problème du voyageur de commerce. Il a été créé dans le cadre du cours Algorithmes et Structures de Données (Février 2018).
 
 ## Le problème du voyageur de commerce
 
